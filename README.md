@@ -1,5 +1,5 @@
 # Kirby 3: Panel View Extended
-While hiding content from the user is not the best way to keep him/her from using the functionality, it seem to be the only working solution for many cases in the panel right now. This plugin adds css classes and features to the panel to quick fix some missing features.
+While hiding content from the user is not the best way to keep him/her from using the functionality, it seem to be the only working solution for many cases in the panel right now. This plugin adds css classes and features to the panel to quick fix some missing features and to make it much easyer to use own css rules.
 
 To have these features in the core would be desirable.
 
