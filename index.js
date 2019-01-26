@@ -95,6 +95,15 @@
             };
 
             views['PageView.page'].watchers.push({callback: hideDraftOption});
+
+            // Hide Status
+            const hideStatus = function (classList, data) {
+                if (data.blueprint.options.hideStatus === true) {
+                    classList.add('hideStatus');
+                }
+            };
+
+            views['PageView.page'].watchers.push({callback: hideStatus});
         }
 
 
