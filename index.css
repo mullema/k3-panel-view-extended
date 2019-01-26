@@ -14,3 +14,8 @@
 .hideDraftOption .k-field-name-status .k-radio-input > li:first-child {
     display: none;
 }
+
+/* hide status */
+.k-page-view.hideStatus header .k-status-flag {
+    display: none;
+}
