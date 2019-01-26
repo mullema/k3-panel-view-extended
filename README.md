@@ -37,7 +37,7 @@ options:
 ```
 
 ### hideSettings
-This blueprint option hides the settings dropdown **in the top bar menu** (see below for information about how to hide the menu in pages sections). Can be desired e.g. if all options are disabled.
+This blueprint option hides the settings dropdown in the top bar menu and in pages sections for the specific page. Can be desired e.g. if all options are disabled.
 
 Available in `pages` blueprints.
 ```yaml
@@ -55,51 +55,10 @@ options:
 ```
 
 ### hideStatus
-This blueprint option hides the status flag **in the top bar menu** (see below for information about how to hide the status flag in pages sections)
+This blueprint option hides the status flag in the top bar menu and in pages sections for the specific page.
 
 Available in `pages` blueprints.
 ```yaml
 options:
   hideStatus: true
-```
-
-## How to hide the options menu / status flag in page sections
-At the moment it is not possible to hide the options menu / status flag based on a blueprint option because they are not sent to the pages section. To fetch them for every single page seems too expensive.
-
-By using [CSS Attribut Selectors](https://developer.mozilla.org/de/docs/Web/CSS/Attributselektoren) we can hide the options menu / status flag using the href attribute as reference. In the examples the menus for the page `gallery` are hidden.
-
-For cards layout:
-```css
-/* hide status flag and page options */
-.k-card > .k-link[href$="/gallery"] ~ .k-card-options {
-    display: none;
-}
-
-/* hide status flag */
-.k-card > .k-link[href$="/gallery"] ~ .k-card-options .k-status-flag {
-    display: none;
-}
-
-/* hide page options */
-.k-card > .k-link[href$="/gallery"] ~ .k-card-options .k-card-options-button {
-    display: none;
-}
-```
-
-For list layouts:
-```css
-/* hide status flag and page options */
-.k-list-item-content[href$="/gallery"] ~ div.k-list-item-options {
-    display: none;
-}
-
-/* hide status flag */
-.k-list-item-content[href$="/gallery"] ~ div.k-list-item-options .k-status-flag {
-    display: none;
-}
-
-/* hide page options */
-.k-list-item-content[href$="/gallery"] ~ div.k-list-item-options .k-list-item-toggle {
-    display: none; 
-}
 ```
