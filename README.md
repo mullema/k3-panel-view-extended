@@ -37,7 +37,7 @@ options:
 ```
 
 ### hideSettings
-This blueprint option hides the settings dropdown **in the top bar menu** (see below for information about how to hide the menu in page sections). Can be desired e.g. if all options are disabled.
+This blueprint option hides the settings dropdown **in the top bar menu** (see below for information about how to hide the menu in pages sections). Can be desired e.g. if all options are disabled.
 
 Available in `pages` blueprints.
 ```yaml
@@ -55,7 +55,7 @@ options:
 ```
 
 ### hideStatus
-This blueprint option hides the status flag **in the top bar menu** (see below for information about how to hide the status flag in page sections)
+This blueprint option hides the status flag **in the top bar menu** (see below for information about how to hide the status flag in pages sections)
 
 Available in `pages` blueprints.
 ```yaml
