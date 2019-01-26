@@ -38,5 +38,9 @@ Kirby::plugin('mullema/k3-panel-view-extended', [
                 }
             }
         }
+    ],
+
+    'sections' => [
+        'pages' => include(__DIR__ . '/sections/page.php')
     ]
 ]);

@@ -132,3 +132,33 @@
         console.error('Error in Plugin k3-panel-view-extended:', e);
     }
 })();
+
+/** require extended page section **/
+panel.plugin('mullema/k3-panel-view-extended', {
+    components: {
+        'k-list-item': {
+            extends: 'k-list-item',
+            props: {
+                blueprint: Object
+            },
+            mounted: function () {
+                if (this.blueprint) {
+                    if (this.blueprint.hideSettings === true) this.$el.classList.add('hideSettings');
+                    if (this.blueprint.hideStatus === true) this.$el.classList.add('hideStatus');
+                }
+            }
+        },
+        'k-card': {
+            extends: 'k-card',
+            props: {
+                blueprint: Object
+            },
+            mounted: function () {
+                if (this.blueprint) {
+                    if (this.blueprint.hideSettings === true) this.$el.classList.add('hideSettings');
+                    if (this.blueprint.hideStatus === true) this.$el.classList.add('hideStatus');
+                }
+            }
+        },
+    }
+});

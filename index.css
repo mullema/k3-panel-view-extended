@@ -1,8 +1,3 @@
-/* hide settings dropdown */
-.k-page-view.hideSettings .k-header .k-dropdown:nth-of-type(1) {
-    display: none;
-}
-
 /* hide language dropdown */
 .k-site-view.singleLanguage .k-header .k-dropdown,
 .k-page-view.singleLanguage .k-header .k-dropdown:nth-of-type(2),
@@ -15,7 +10,18 @@
     display: none;
 }
 
-/* hide status */
-.k-page-view.hideStatus header .k-status-flag {
+/* hide settings dropdown */
+.k-page-view.hideSettings .k-header .k-dropdown:nth-of-type(1), /* top menu */
+.k-card.hideSettings .k-card-options-button, /* card */
+.k-list-item.hideSettings .k-list-item-toggle /* list-items */
+{
+    display: none;
+}
+
+/* hide status flag */
+.k-page-view.hideStatus header .k-status-flag, /* top menu */
+.k-list-item.hideStatus .k-status-flag, /* list-items */
+.k-card.hideStatus .k-status-flag /* card */
+{
     display: none;
 }
