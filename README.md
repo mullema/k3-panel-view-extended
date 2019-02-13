@@ -1,12 +1,20 @@
 # Kirby 3: Panel View Extended
-This plugin adds css classes and features to the panel to quick fix some missing features and to make it much easyer to use own css rules.
+This plugin adds css classes and features to the panel views.
 
-To have these features in the core would be desirable.
+Always:
+- Add more specific css classes to k-page-view
 
-Tested with *Kirby 3.0*
+Blueprint options:
+- Set a site/page/user to single language in a multi language setup and hide language drop down
+- Hide the settings dropdown for pages in options top bar and in pages sections
+- Hide the status button in options top bar for pages and in pages sections
+- Hide the whole options top bar for pages and in pages sections
+- Hide draft option in status change dialog
+
+Tested with *Kirby 3.0.1*
 
 ## Install
-Download zip file and copy the folder into the ```site/plugins``` folder
+Download the zip file and copy the folder into ```site/plugins```
 
 ## Features
 ### additional classes to k-page-view
@@ -30,6 +38,8 @@ panel/pages/projects+usa+new-york
 ### singleLanguage
 (multilanguage setup) This blueprint option hides the language selector and forces all updates to be saved in the default language (see hook)
 
+Only updates from the Panel are intercepted. Pages created or updated via own backend code are not affected.
+
 Available in `site`, `pages` and `user` blueprints.
 ```yaml
 options:
@@ -45,15 +55,6 @@ options:
   hideSettings: true
 ```
 
-### hideDraftOption
-This feature removes draft from the options in the status change list for pages with the slug `home` and `error`
-
-The blueprint option does the same for the respective page. Available in `pages` blueprints. 
-```yaml
-options:
-  hideDraftOption: true
-```
-
 ### hideStatus
 This blueprint option hides the status flag in the top bar menu and in pages sections for the specific page.
 
@@ -62,3 +63,26 @@ Available in `pages` blueprints.
 options:
   hideStatus: true
 ```
+
+### hideOptions
+This blueprint option hides the whole options top bar for pages. 
+It **includes all features** from singleLanguage, hideSettings and hideStatus
+```yaml
+options:
+  hideOptions: true
+```
+
+### hideDraftOption
+The blueprint option removes draft from the options in the status change dialog for the respective page. 
+
+Available in `pages` blueprints. 
+```yaml
+options:
+  hideDraftOption: true
+```
+
+## License
+MIT
+
+## Credits
+- [Matthias Müller](https://github.com/mullema/)

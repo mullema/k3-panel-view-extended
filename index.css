@@ -25,3 +25,8 @@
 {
     display: none;
 }
+
+/* hide header buttons */
+.k-page-view.hideOptions .k-bar.k-header-buttons {
+    display: none;
+}

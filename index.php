@@ -32,7 +32,8 @@ Kirby::plugin('mullema/k3-panel-view-extended', [
 
                 if ($context) {
                     $singleLanguage = $context->blueprint()->options()['singleLanguage'] ?? false;
-                    if ($singleLanguage === true) {
+                    $hideOptions = $context->blueprint()->options()['hideOptions'] ?? false;
+                    if ($singleLanguage === true || $hideOptions === true) {
                         $_SERVER['HTTP_X_LANGUAGE'] = $this->languages()->default()->code();
                     }
                 }

@@ -1,0 +1,15 @@
+{
+  "name": "mullema/k3-panel-view-extended",
+  "description": "Allow single language pages/site/users in a multi language setup, hide buttons in topbar and sections.",
+  "type": "kirby-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Matthias Müller",
+      "email": "moeli@moeli.com"
+    }
+  ],
+  "require": {
+    "getkirby/composer-installer": "^1.1"
+  }
+}

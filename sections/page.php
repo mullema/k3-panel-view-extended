@@ -1,7 +1,8 @@
 <?php
-use Kirby\Toolkit\A;
 
-$options = require __DIR__ . '/../../../../kirby/config/sections/pages.php';
+use Kirby\Cms\Section;
+
+$options = Section::$types['pages'];
 
 /** Extend pages section **/
 $options['computed']['data'] = function () {
