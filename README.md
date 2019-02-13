@@ -13,8 +13,22 @@ Blueprint options:
 
 Tested with *Kirby 3.0.1*
 
-## Install
-Download the zip file and copy the folder into ```site/plugins```
+## Installation
+### Download
+
+Download and copy this repository to `/site/plugins/k3-panel-view-extended`
+
+### Git submodule
+
+```
+git submodule add https://github.com/mullema/k3-panel-view-extended.git site/plugins/k3-panel-view-extended
+```
+
+### Composer
+
+```
+composer require mullema/k3-panel-view-extended
+```
 
 ## Features
 ### additional classes to k-page-view
