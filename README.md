@@ -80,7 +80,9 @@ options:
 
 ### hideOptions
 This blueprint option hides the whole options top bar for pages. 
-It **includes all features** from singleLanguage, hideSettings and hideStatus
+It **includes all features** from singleLanguage, hideSettings and hideStatus.
+
+Available in `pages` blueprints.
 ```yaml
 options:
   hideOptions: true
