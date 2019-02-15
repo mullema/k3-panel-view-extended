@@ -10,7 +10,6 @@ Kirby::plugin('mullema/k3-panel-view-extended', [
 
                 // api slug can be changed in config.php
                 $api_slug = $this->option('api')['slug'] ?? 'api';
-
                 $context = null;
 
                 // Site
@@ -18,16 +17,15 @@ Kirby::plugin('mullema/k3-panel-view-extended', [
                     $context = $this->site();
                 }
                 // Page
-                else if (strpos($path, $api_slug . '/pages') !== false) {
-                    // api/pages/projects+usa+new-york => projects/usa/new-york
-                    $page_path = str_replace($api_slug . '/pages/', '', str_replace('+', '/', $path));
-
+                else if (preg_match('/pages\/([^\/]*)/', $path, $matches) === 1) {
+                    // api/pages/projects+usa+new-york/title => projects/usa/new-york
+                    $page_path = str_replace("+", "/", $matches[1]);
                     $context = $this->site()->page($page_path);                   // is it a page
                     if (!$context) $context = $this->site()->draft($page_path);   // or a draft?
                 }
                 // User
-                else if (strpos($path, $api_slug . '/user') !== false) {
-                    $context = $this->user();
+                else if (preg_match('/users\/([^\/]*)/', $path, $matches) === 1) {
+                    $context = $this->users()->find($matches[1]);
                 }
 
                 if ($context) {
