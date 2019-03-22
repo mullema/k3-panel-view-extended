@@ -30,26 +30,30 @@
 
     function pagesToClasses() {
         let panel_classes = null;
-        return function (classList, data) {
-            if (!panel_classes) panel_classes = [...classList]; // copy
-
-            for (let name of classList) {
-                if (!panel_classes.includes(name)) classList.remove(name);
+        return function (element, data) {
+            if (!panel_classes) {
+                panel_classes = [...element.classList]; // copy
+            }
+            else {
+                element.className = ""; // remove all
+                for (let name of panel_classes) {
+                    element.classList.add(name);
+                }
             }
 
-            classList.add('level_' + data.parents.length);
-            classList.add(data.slug);
+            element.classList.add('level_' + data.parents.length);
+            element.classList.add(data.slug);
 
             for (let parent of data.parents) {
-                classList.add(parent.slug);
+                element.classList.add(parent.slug);
             }
         }
     }
 
     function addClass(name) {
-        return function (classList, data) {
+        return function (element, data) {
             if (data.blueprint.options[name] === true) {
-                classList.add(name);
+                element.classList.add(name);
             }
         }
     }
@@ -78,7 +82,7 @@
                 this.$router.options.routes.find(route => route.name === view.name).component.watch[view.watch] = function () {
                     this.$nextTick(() => {
                         view.callbacks.forEach((callback) => {
-                            callback(this.$el.classList, this[view.watch]);
+                            callback(this.$el, this[view.watch]);
                         });
                     });
                 }
