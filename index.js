@@ -79,7 +79,7 @@
         extends: 'k-topbar',
         mounted: function () {
             Object.values(views).forEach(view => {
-                this.$router.options.routes.find(route => route.name === view.name).component.watch[view.watch] = function () {
+                this.$router.options.routes.find(route => route.name === view.name).component.options.watch[view.watch] = function () {
                     this.$nextTick(() => {
                         view.callbacks.forEach((callback) => {
                             callback(this.$el, this[view.watch]);
