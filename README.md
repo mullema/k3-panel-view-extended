@@ -15,7 +15,7 @@ Blueprint options:
 
 For Kirby 3.2.x use v2.0 and higher 
 
-For Kirby 3.0 - 3.1.x use [version 1.0.7](https://github.com/mullema/k3-panel-view-extended/releases/tag/v1.0.4)
+For Kirby 3.0 - 3.1.x use [version 1.0.4](https://github.com/mullema/k3-panel-view-extended/releases/tag/v1.0.4)
 
 ## Installation
 ### Download
