@@ -3,15 +3,19 @@ This plugin adds css classes and features to the panel views.
 
 Always:
 - Add more specific css classes to k-page-view
+- Adds username and role as css classes to k-panel
 
 Blueprint options:
-- Set a site/page/user to single language in a multi language setup and hide language drop down
-- Hide the settings dropdown for pages in options top bar and in pages sections
-- Hide the status button in options top bar for pages and in pages sections
+- In a multi language setup: Set a site/page/user to single language and hide the language drop down
+- Hide the settings dropdown for pages in the options top bar and in pages sections
+- Hide the status button in the options top bar for pages and in pages sections
 - Hide the whole options top bar for pages and in pages sections
-- Hide draft option in status change dialog
+- Hide the draft option the in status change dialog
 
-Tested with *Kirby 3.0.1*
+
+For Kirby 3.2.x use v2.0 and higher 
+
+For Kirby 3.0 - 3.1.x use [version 1.0.7](https://github.com/mullema/k3-panel-view-extended/releases/tag/v1.0.4)
 
 ## Installation
 ### Download
@@ -47,6 +51,12 @@ panel/pages/projects+usa
 panel/pages/projects+usa+new-york
 ```html
 <div class="k-view k-page-view projects usa new-york level_2">
+```
+
+### adds username and role to k-panel
+Username and role are added to the `k-panel` element. This allows custom panel design per username or role.
+```html
+<div class="k-panel mullema admin" data-topbar="true">
 ```
 
 ### singleLanguage
