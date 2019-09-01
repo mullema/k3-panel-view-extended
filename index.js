@@ -1,6 +1,6 @@
 (function (panel) {
     const views = {
-        'PageView': {
+        'Page': {
             name: 'Page',
             watch: 'page',
             callbacks: [
@@ -12,20 +12,20 @@
                 addClass('hideOptions')
             ]
         },
-        'SiteView': {
+        'Site': {
             name: 'Site',
             watch: 'site',
             callbacks: [
                 addClass('singleLanguage')
             ]
         },
-        'UserView': {
+        'User': {
             name: 'User',
             watch: 'user',
             callbacks: [
                 addClass('singleLanguage')
             ]
-        },
+        }
     };
 
     function pagesToClasses() {
@@ -58,6 +58,28 @@
         }
     }
 
+    function addUser(app) {
+        let name = app.$store.state.user.current.name || "";
+        let role = app.$store.state.user.current.role.name || "";
+        app.$el.classList.add(name, role);
+    }
+
+    function extendView(name, app) {
+        if (views[name]) {
+            let view = views[name];
+
+            app.$router.options.routes.find(route => route.name === view.name).component.options.watch[view.watch] = function (value) {
+                if(!value.blueprint) return false;
+
+                this.$nextTick(() => {
+                    view.callbacks.forEach((callback) => {
+                        callback(this.$el, value);
+                    });
+                });
+            }
+        }
+    }
+
     function extension(component) {
         return {
             extends: component,
@@ -75,30 +97,21 @@
         }
     }
 
-    const topbar = {
-        extends: 'k-topbar',
-        mounted: function () {
-            Object.values(views).forEach(view => {
-                this.$router.options.routes.find(route => route.name === view.name).component.watch[view.watch] = function () {
-                    this.$nextTick(() => {
-                        view.callbacks.forEach((callback) => {
-                            callback(this.$el, this[view.watch]);
-                        });
-                    });
-                }
-            });
-        }
-    };
 
     /**
-     * Add classes when k-topbar mounted
+     * Add classes when plugin created
      * extend card and list to hide settings & status in sections
      */
     panel.plugin('mullema/k3-panel-view-extended', {
         components: {
-            'k-topbar': topbar,
             'k-list-item': extension('k-list-item'),
             'k-card': extension('k-card'),
+        },
+        created(app) {
+            app.$router.afterEach((to, from) => {
+                addUser(app);
+                extendView(to.name, app);
+            });
         }
     });
 
