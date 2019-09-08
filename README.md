@@ -3,7 +3,8 @@ This plugin adds css classes and features to the panel views.
 
 Always:
 - Add more specific css classes to k-page-view
-- Adds username and role as css classes to k-panel
+- Add username and role as css classes to k-panel
+- In a multi language setup: Add current language code to k-panel
 
 Blueprint options:
 - In a multi language setup: Set a site/page/user to single language and hide the language drop down
@@ -53,10 +54,19 @@ panel/pages/projects+usa+new-york
 <div class="k-view k-page-view projects usa new-york level_2">
 ```
 
-### adds username and role to k-panel
+### add username and role to k-panel
 Username and role are added to the `k-panel` element. This allows custom panel design per username or role.
 ```html
 <div class="k-panel mullema admin" data-topbar="true">
+```
+
+### add current language code to k-panel
+The language code is added to the `k-panel` element. This allows custom panel design per language.
+```html
+<div class="k-panel de" data-topbar="true">
+```
+```html
+<div class="k-panel en" data-topbar="true">
 ```
 
 ### singleLanguage
