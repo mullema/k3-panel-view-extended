@@ -33,8 +33,7 @@
         return function (element, data) {
             if (!panel_classes) {
                 panel_classes = [...element.classList]; // copy
-            }
-            else {
+            } else {
                 element.className = ""; // remove all
                 for (let name of panel_classes) {
                     element.classList.add(name);
@@ -58,20 +57,12 @@
         }
     }
 
-    function addUser(app) {
-        if (app.$store.state.user.current) {
-            let name = app.$store.state.user.current.name || "";
-            let role = app.$store.state.user.current.role.name || "";
-            app.$el.classList.add(name, role);
-        }
-    }
-
     function extendView(name, app) {
         if (views[name]) {
             let view = views[name];
 
             app.$router.options.routes.find(route => route.name === view.name).component.options.watch[view.watch] = function (value) {
-                if(!value.blueprint) return false;
+                if (!value.blueprint) return false;
 
                 this.$nextTick(() => {
                     view.callbacks.forEach((callback) => {
@@ -99,10 +90,48 @@
         }
     }
 
+    function watchLanguage(app) {
+        app.$store.watch(
+            state => {
+                if (state.languages.current) {
+                    return state.languages.current;
+                }
+            },
+            (newLanguage, oldLanguage) => {
+                if (oldLanguage) app.$el.classList.remove(oldLanguage.code);
+                app.$el.classList.add(newLanguage.code);
+            }
+        )
+    }
+
+    function watchUser(app) {
+        app.$store.watch(
+            state => {
+                if (state.user.current) {
+                    return state.user.current;
+                }
+            },
+            (newUser, oldUser) => {
+                if (oldUser) app.$el.classList.remove(oldUser.name, oldUser.role.name);
+                // check to prevent logout exception
+                if (newUser) app.$el.classList.add(newUser.name, newUser.role.name);
+            }
+        );
+
+        // fix #1957
+        app.$events.$on("user.changeName", () => {
+            app.$store.dispatch("user/load");
+        });
+
+        app.$events.$on("user.changeRole", () => {
+            app.$store.dispatch("user/load");
+        });
+    }
 
     /**
-     * Add classes when plugin created
-     * extend card and list to hide settings & status in sections
+     * Extend card and list to hide settings & status in sections
+     * Add classes after each route change
+     * Watch store for change in user and selected language
      */
     panel.plugin('mullema/k3-panel-view-extended', {
         components: {
@@ -111,9 +140,11 @@
         },
         created(app) {
             app.$router.afterEach((to, from) => {
-                addUser(app);
                 extendView(to.name, app);
             });
+
+            watchLanguage(app);
+            watchUser(app);
         }
     });
 
