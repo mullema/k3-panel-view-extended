@@ -59,9 +59,11 @@
     }
 
     function addUser(app) {
-        let name = app.$store.state.user.current.name || "";
-        let role = app.$store.state.user.current.role.name || "";
-        app.$el.classList.add(name, role);
+        if (app.$store.state.user.current) {
+            let name = app.$store.state.user.current.name || "";
+            let role = app.$store.state.user.current.role.name || "";
+            app.$el.classList.add(name, role);
+        }
     }
 
     function extendView(name, app) {
