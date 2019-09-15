@@ -56,8 +56,15 @@ panel/pages/projects+usa+new-york
 
 ### add username and role to k-panel
 Username and role are added to the `k-panel` element. This allows custom panel design per username or role.
+- Characters except `[A-Za-z0-9-_]` will be removed from the username
+- Username and role are transformed to lowercase
+
 ```html
 <div class="k-panel mullema admin" data-topbar="true">
+```
+Usernames like `Kirby Kirbyname` will be split in two classes:
+```html
+<div class="k-panel kirby kirbyname admin" data-topbar="true">
 ```
 
 ### add current language code to k-panel
