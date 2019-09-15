@@ -112,9 +112,19 @@
                 }
             },
             (newUser, oldUser) => {
-                if (oldUser) app.$el.classList.remove(...cleanSplitUsername(oldUser.name), oldUser.role.name);
+                if (oldUser) {
+                    app.$el.classList.remove(
+                        ...cleanSplitUsername(oldUser.name.toLowerCase()),
+                        oldUser.role.name.toLowerCase()
+                    );
+                }
                 // check to prevent logout exception
-                if (newUser) app.$el.classList.add(...cleanSplitUsername(newUser.name), newUser.role.name);
+                if (newUser) {
+                    app.$el.classList.add(
+                        ...cleanSplitUsername(newUser.name.toLowerCase()),
+                        newUser.role.name.toLowerCase()
+                    );
+                }
             }
         );
 
