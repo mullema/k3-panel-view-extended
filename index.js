@@ -112,9 +112,19 @@
                 }
             },
             (newUser, oldUser) => {
-                if (oldUser) app.$el.classList.remove(oldUser.name, oldUser.role.name);
+                if (oldUser) {
+                    app.$el.classList.remove(
+                        ...cleanSplitUsername(oldUser.name.toLowerCase()),
+                        oldUser.role.name.toLowerCase()
+                    );
+                }
                 // check to prevent logout exception
-                if (newUser) app.$el.classList.add(newUser.name, newUser.role.name);
+                if (newUser) {
+                    app.$el.classList.add(
+                        ...cleanSplitUsername(newUser.name.toLowerCase()),
+                        newUser.role.name.toLowerCase()
+                    );
+                }
             }
         );
 
@@ -126,6 +136,16 @@
         app.$events.$on("user.changeRole", () => {
             app.$store.dispatch("user/load");
         });
+    }
+
+    /**
+     * Clean non-word characters from username and split into single words
+     * @param username
+     * @returns {string[]}
+     */
+    function cleanSplitUsername(username) {
+        let cleaned_name = username.replace(/[^\w\s-]/gi, '');
+        return cleaned_name.split(" ");
     }
 
     /**
