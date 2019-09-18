@@ -126,16 +126,7 @@
                     );
                 }
             }
-        );
-
-        // fix #1957
-        app.$events.$on("user.changeName", () => {
-            app.$store.dispatch("user/load");
-        });
-
-        app.$events.$on("user.changeRole", () => {
-            app.$store.dispatch("user/load");
-        });
+        )
     }
 
     /**
