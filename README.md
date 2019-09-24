@@ -14,8 +14,8 @@ Blueprint options:
 - Hide the draft option the in status change dialog
 
 
-For Kirby 3.2.x use v2.0 and higher 
-
+From Kirby 3.2.5 use v2.2.x
+For Kirby 3.2.x use v2.1.x
 For Kirby 3.0 - 3.1.x use [version 1.0.4](https://github.com/mullema/k3-panel-view-extended/releases/tag/v1.0.4)
 
 ## Installation
