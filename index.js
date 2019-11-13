@@ -90,6 +90,15 @@
         }
     }
 
+    const languageSelector = {
+        extends: 'k-languages-dropdown',
+        mounted() {
+            this.$nextTick(() => {
+                this.$el.classList.add("languageSelector")
+            })
+        }
+    };
+
     function watchLanguage(app) {
         app.$store.watch(
             state => {
@@ -149,6 +158,7 @@
         components: {
             'k-list-item': extension('k-list-item'),
             'k-card': extension('k-card'),
+            'k-languages-dropdown': languageSelector
         },
         created(app) {
             app.$router.afterEach((to, from) => {

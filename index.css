@@ -1,7 +1,7 @@
 /* hide language dropdown */
-.k-site-view.singleLanguage .k-header .k-dropdown,
-.k-page-view.singleLanguage .k-header .k-dropdown:nth-of-type(2),
-.k-user-view.singleLanguage .k-header .k-dropdown:nth-of-type(2) {
+.k-site-view.singleLanguage .k-dropdown.languageSelector,
+.k-page-view.singleLanguage .k-dropdown.languageSelector,
+.k-user-view.singleLanguage .k-dropdown.languageSelector {
     display: none;
 }
 
@@ -11,7 +11,7 @@
 }
 
 /* hide settings dropdown */
-.k-page-view.hideSettings .k-header .k-dropdown:nth-of-type(1), /* top menu */
+.k-page-view.hideSettings .k-header .k-dropdown:not(.languageSelector), /* top menu */
 .k-card.hideSettings .k-card-options-button, /* card */
 .k-list-item.hideSettings .k-list-item-toggle /* list-items */
 {
