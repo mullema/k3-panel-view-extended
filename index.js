@@ -119,7 +119,8 @@
                     );
                 }
                 // check to prevent logout exception
-                if (newUser) {
+                // new users don't have a name in k3.3
+                if (newUser && newUser.name !== "") {
                     app.$el.classList.add(
                         ...cleanSplitUsername(newUser.name.toLowerCase()),
                         newUser.role.name.toLowerCase()
