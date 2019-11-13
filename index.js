@@ -123,7 +123,7 @@
                 }
             },
             (newUser, oldUser) => {
-                if (oldUser) {
+                if (oldUser && oldUser.name !== "") {
                     app.$el.classList.remove(
                         ...cleanSplitUsername(oldUser.name.toLowerCase()),
                         oldUser.role.name.toLowerCase()
