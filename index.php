@@ -38,24 +38,24 @@ Kirby::plugin('mullema/k3-panel-view-extended', [
                     }
                 }
             }
-        }
+        },
+
+        /**
+         * Extend rasteiner/k3-pagesdisplay-section if it was loaded
+         */
+        'system.loadPlugins:after' => function () {
+            if(isset(Section::$types['pagesdisplay'])) {
+                $pagesdisplaySection = require __DIR__ . '/src/pagesDisplaySection.php';
+                error_log('loaded');
+
+                kirby()->extend([
+                    'sections' => [
+                        'pagesdisplay' => $pagesdisplaySection
+                    ],
+                ], kirby()->plugin('mullema/k3-panel-view-extended'));
+            }
+        },
     ],
-
-    /**
-     * Extend rasteiner/k3-pagesdisplay-section if it was loaded
-     */
-    'system.loadPlugins:after' => function () {
-        if(isset(Section::$types['pagesdisplay'])) {
-            $pagesdisplaySection = require __DIR__ . '/src/pagesDisplaySection.php';
-
-            kirby()->extend([
-                'sections' => [
-                    'pagesdisplay' => $pagesdisplaySection
-                ],
-            ], kirby()->plugin('mullema/k3-panel-view-extended'));
-        }
-    },
-
     'sections' => [
         'pages' => include(__DIR__ . '/src/pagesSection.php')
     ],
