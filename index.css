@@ -12,7 +12,7 @@
 
 /* hide settings dropdown */
 .k-page-view.hideSettings .k-header .k-dropdown:not(.languageSelector), /* top menu */
-.k-card.hideSettings .k-card-options-button, /* card */
+.k-card.hideSettings .k-card-options .k-card-options-button:not(.k-status-flag), /* card */
 .k-list-item.hideSettings .k-list-item-toggle /* list-items */
 {
     display: none;
