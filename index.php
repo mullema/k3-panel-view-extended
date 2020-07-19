@@ -46,7 +46,6 @@ Kirby::plugin('mullema/k3-panel-view-extended', [
         'system.loadPlugins:after' => function () {
             if(isset(Section::$types['pagesdisplay'])) {
                 $pagesdisplaySection = require __DIR__ . '/src/pagesDisplaySection.php';
-                error_log('loaded');
 
                 kirby()->extend([
                     'sections' => [
