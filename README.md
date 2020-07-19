@@ -13,6 +13,7 @@ Blueprint options:
 - Hide the whole options top bar for pages and in pages sections
 - Hide the draft option the in status change dialog
 
+This plugin is compatible with [rasteiner/k3-pagesdisplay-sections](https://github.com/rasteiner/k3-pagesdisplay-section)
 
 From Kirby 3.2.5 use v2.2.x\
 For Kirby 3.2.x use v2.1.x\
