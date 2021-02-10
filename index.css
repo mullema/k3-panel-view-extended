@@ -12,16 +12,16 @@
 
 /* hide settings dropdown */
 .k-page-view.hideSettings .k-header .k-dropdown:not(.languageSelector), /* top menu */
-.k-card.hideSettings .k-card-options .k-card-options-button:not(.k-status-flag), /* card */
+.k-card.hideSettings .k-card-options .k-card-options-button:not(.k-status-icon), /* card */
 .k-list-item.hideSettings .k-list-item-toggle /* list-items */
 {
     display: none;
 }
 
 /* hide status flag */
-.k-page-view.hideStatus header .k-status-flag, /* top menu */
-.k-list-item.hideStatus .k-status-flag, /* list-items */
-.k-card.hideStatus .k-status-flag /* card */
+.k-page-view.hideStatus header .k-status-icon, /* top menu */
+.k-list-item.hideStatus .k-status-icon, /* list-items */
+.k-card.hideStatus .k-status-icon /* card */
 {
     display: none;
 }
