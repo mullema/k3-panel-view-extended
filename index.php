@@ -8,7 +8,7 @@ Kirby::plugin('mullema/k3-panel-view-extended', [
          * Redirect changes to the default language
          */
         'route:before' => function ($route, $path, $method) {
-            if ($method === 'PATCH') {
+            if ($method === 'PATCH' && $this->multilang() === true) {
 
                 // api slug can be changed in config.php
                 $api_slug = $this->option('api')['slug'] ?? 'api';
