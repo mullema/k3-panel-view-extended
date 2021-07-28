@@ -93,7 +93,7 @@
   const languageSelector = {
     extends: 'k-languages-dropdown',
     mounted () {
-      if (this.$store.state.languages.all.length > 0) {
+      if (this.$store.state.languages.all.length > 1) {
         this.$nextTick(() => {
           this.$el.classList.add('languageSelector')
         })
