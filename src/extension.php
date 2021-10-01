@@ -1,17 +1,30 @@
 <?php
 
+use Kirby\Toolkit\Escape;
+
 return [
   'computed' => [
+      // https://github.com/getkirby/kirby/blob/master/config/sections/pages.php
       'data' => function () {
+
           $data = [];
+
           foreach ($this->pages as $item) {
+              $blueprint   = $item->blueprint(); // panel-view-extended
               $permissions = $item->permissions();
-              $blueprint   = $item->blueprint();
               $image       = $item->panelImage($this->image);
+
+              // escape the default text
+              // TODO: no longer needed in 3.6
+              $text = $item->toString($this->text);
+              if ($this->text === '{{ page.title }}') {
+                  $text = Escape::html($text);
+              }
+
               $data[] = [
                   'id'          => $item->id(),
                   'dragText'    => $item->dragText(),
-                  'text'        => $item->toString($this->text),
+                  'text'        => $text,
                   'info'        => $item->toString($this->info ?? false),
                   'parent'      => $item->parentId(),
                   'icon'        => $item->panelIcon($image),
@@ -20,9 +33,11 @@ return [
                   'status'      => $item->status(),
                   'permissions' => [
                       'sort'         => $permissions->can('sort'),
-                      'changeStatus' => $permissions->can('changeStatus')
+                      'changeSlug'   => $permissions->can('changeSlug'),
+                      'changeStatus' => $permissions->can('changeStatus'),
+                      'changeTitle'  => $permissions->can('changeTitle')
                   ],
-                  'blueprint'   => $blueprint->options()
+                  'blueprintOptions'   => $blueprint->options() // panel-view-extended
               ];
           }
           return $data;

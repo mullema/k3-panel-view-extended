@@ -1,32 +1,25 @@
 /* hide language dropdown */
-.k-site-view.singleLanguage .k-dropdown.languageSelector,
-.k-page-view.singleLanguage .k-dropdown.languageSelector,
-.k-user-view.singleLanguage .k-dropdown.languageSelector {
-    display: none;
-}
-
-/* hide draft option */
-.hideDraftOption .k-field-name-status .k-radio-input > li:first-child {
-    display: none;
+.k-panel.singleLanguage .k-languages-dropdown {
+  display: none !important;
 }
 
 /* hide settings dropdown */
-.k-page-view.hideSettings .k-header .k-dropdown:not(.languageSelector), /* top menu */
-.k-card.hideSettings .k-card-options .k-card-options-button:not(.k-status-icon), /* card */
-.k-list-item.hideSettings .k-list-item-toggle /* list-items */
+.k-panel.hideSettings .k-site-view-options,
+.k-panel.hideSettings .k-page-view-options,
+.kpanel.hideSettings .k-user-view-options,
+.k-item.hideSettings .k-item-options-dropdown
 {
-    display: none;
+  display: none !important;
 }
 
 /* hide status flag */
-.k-page-view.hideStatus header .k-status-icon, /* top menu */
-.k-list-item.hideStatus .k-status-icon, /* list-items */
-.k-card.hideStatus .k-status-icon /* card */
+.k-panel.hideStatus header .k-status-icon, /* top menu */
+.k-item.hideStatus .k-button.k-status-icon
 {
-    display: none;
+  display: none !important;
 }
 
 /* hide header buttons */
-.k-page-view.hideOptions .k-bar.k-header-buttons {
-    display: none;
+.k-panel.hideOptions .k-bar.k-header-buttons {
+  display: none !important;
 }
