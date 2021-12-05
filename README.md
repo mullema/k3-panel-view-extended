@@ -7,7 +7,8 @@ Features with Blueprint options:
 - Hide the settings dropdown for pages in the options top bar and in pages sections
 - Hide the status button in the options top bar for pages and in pages sections
 - Hide the whole options top bar for pages and in pages sections
-~~- Hide the draft option the in status change dialog~~
+
+- ~~- Hide the draft option the in status change dialog~~
 
 This plugin is compatible with [rasteiner/k3-pagesdisplay-sections](https://github.com/rasteiner/k3-pagesdisplay-section)
 
