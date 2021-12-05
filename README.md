@@ -1,6 +1,6 @@
 # Kirby 3: Panel View Extended
 With Kirby 3.6 a lot of new CSS selectors were added to the Panel views. Therefore, the add css classes feature was removed from this plugin.
-See the official kirby website for [available css selectors](https://getkirby.com/releases/3.6/features/extended-panel-views).
+See the official Kirby website for [available css selectors](https://getkirby.com/docs/reference/panel/styling).
 
 Features with Blueprint options:
 - In a multi language setup: Set a site/page/user to single language and hide the language drop down
@@ -82,6 +82,3 @@ No longer available
 
 ## License
 MIT
-
-## Credits
-- [Matthias Müller](https://github.com/mullema/)
