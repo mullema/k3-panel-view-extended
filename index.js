@@ -4,17 +4,28 @@
   function extendView (component) {
     return {
       extends: component,
-      mounted: function () {
-        const options = this.$options.propsData.permissions
+      mounted () {
+        this.setExtendOptions()
+      },
+      watch: {
+        // watch for blueprint change
+        '$props.blueprint' () {
+          this.setExtendOptions()
+        }
+      },
+      methods: {
+        setExtendOptions () {
+          const options = this.$options.propsData.permissions
 
-        if (options) {
-          extendOptions.forEach(extendOption => {
-            if (options[extendOption] === true) {
-              this.$el.classList.add(extendOption)
-            } else {
-              this.$el.classList.remove(extendOption)
-            }
-          })
+          if (options) {
+            extendOptions.forEach(extendOption => {
+              if (options[extendOption] === true) {
+                this.$el.classList.add(extendOption)
+              } else {
+                this.$el.classList.remove(extendOption)
+              }
+            })
+          }
         }
       }
     }
@@ -26,7 +37,7 @@
       props: {
         blueprintOptions: Object
       },
-      mounted: function () {
+      mounted () {
         if (this.blueprintOptions) {
           this.$nextTick(() => {
             if (this.blueprintOptions.hideOptions === true || this.blueprintOptions.hideSettings === true) this.$el.classList.add('hideSettings')
