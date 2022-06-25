@@ -3,7 +3,7 @@
   "description": "Allow single language pages/site/users in a multi language setup, hide buttons in topbar and sections.",
   "type": "kirby-plugin",
   "license": "MIT",
-  "version": "4.1",
+  "version": "5.0",
   "authors": [
     {
       "name": "Matthias Müller",

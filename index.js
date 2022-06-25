@@ -48,13 +48,39 @@
     }
   }
 
+  function extendTableComponent (component) {
+    return {
+      extends: component,
+      watch: {
+        rows () {
+          for (const key in this.rows) {
+            const row = this.rows[key]
+
+            if (!row.blueprintOptions) continue
+
+            if (row.blueprintOptions.hideOptions === true || row.blueprintOptions.hideSettings === true) {
+              this.rows[key].options = {}
+            }
+
+            if (row.blueprintOptions.hideOptions === true || row.blueprintOptions.hideStatus === true) {
+              if ('flag' in this.rows[key]) delete this.rows[key].flag
+            }
+          }
+
+          this.values = this.rows
+        }
+      }
+    }
+  }
+
   /**
-   * Extend item to hide settings & status in sections
+   * Extend item / table to hide settings & status in sections
    * Extend site / page / user view to hide settings / status and language dropdown
    */
   panel.plugin('mullema/k3-panel-view-extended', {
     components: {
       'k-item': extendComponent('k-item'),
+      'k-table': extendTableComponent('k-table'),
       'k-site-view': extendView('k-site-view'),
       'k-page-view': extendView('k-page-view'),
       'k-user-view': extendView('k-user-view')
