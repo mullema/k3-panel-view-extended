@@ -12,6 +12,7 @@ Features with Blueprint options:
 
 This plugin is compatible with [rasteiner/k3-pagesdisplay-sections](https://github.com/rasteiner/k3-pagesdisplay-section)
 
+From Kirby 3.5 use v5.0\
 From Kirby 3.6 use v4.0\
 From Kirby 3.5 use v3.0\
 From Kirby 3.2.5 use v2.2.x\
